@@ -13,6 +13,7 @@ import { Meal } from './meal.model';
       <p>Meal: {{currentMeal.name}}</p>
       <p>Calories: {{currentMeal.calories}}</p>
       <p>Details: {{currentMeal.details}}</p>
+      <p>Date: {{currentMeal.date}}</p>
       <button (click)="editMeal(currentMeal)">Edit Meal</button>
     </div>
   `

@@ -1,5 +1,6 @@
 - figure out edit form validations
-- what the hell are all these map files and how do i get them off my github
+- what the hell are all these map files
+
 - Custom SASS styling with corresponding Gulp tasks to compile.
 - Display of the total number of calories consumed in a day, and/or the average number of calories consumed in a day.
 - Add a property that records when each food was eaten. The user could enter a date and time, or the app can generate a timestamp.

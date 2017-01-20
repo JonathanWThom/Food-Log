@@ -17,14 +17,18 @@ import { Meal } from './meal.model';
       <label>Details</label>
       <input #newDetails>
     </div>
-    <button (click)="newMeal(newName.value, newCalories.value, newDetails.value); newName.value=''; newCalories.value=''; newDetails.value='';">Log</button>
+    <div>
+      <label>Date</label>
+      <input #newDate type="date">
+    </div>
+    <button (click)="newMeal(newName.value, newCalories.value, newDetails.value, newDate.value); newName.value=''; newCalories.value=''; newDetails.value=''; newDate.value='';">Log</button>
   `
 })
 
 export class NewMealComponent {
   @Output() newMealSender = new EventEmitter();
 
-  newMeal(name: string, calories: number, details: string) {
+  newMeal(name: string, calories: number, details: string, date: string) {
     var failure: boolean = false;
     if (name === "") {
       alert('Please fill in the meal\'s name');
@@ -46,8 +50,15 @@ export class NewMealComponent {
       failure = true;
     }
 
+    if (!date) {
+      alert('Please pick a date');
+      failure = true;
+    }
+
+    //add date validation
+
     if (failure === false) {
-      var newMeal: Meal = new Meal(name, calories, details);
+      var newMeal: Meal = new Meal(name, calories, details, date);
       this.newMealSender.emit(newMeal);
     }
   }

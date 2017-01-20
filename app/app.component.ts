@@ -15,9 +15,9 @@ import { Meal } from './meal.model';
 
 export class AppComponent {
   masterMealList: Meal[] = [
-    new Meal('Ice Cream', 1000, 'Several bowls'),
-    new Meal('Cake', 1500, 'The whole cake'),
-    new Meal('Spinach', 2, 'One leaf of spinach')
+    new Meal('Ice Cream', 1000, 'Several bowls', '2017-01-20'),
+    new Meal('Cake', 1500, 'The whole cake', '2017-01-20'),
+    new Meal('Spinach', 2, 'One leaf of spinach', '2017-01-19')
   ];
   selectedMeal: Meal = null;
 
