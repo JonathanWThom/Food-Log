@@ -26,10 +26,6 @@ gulp serve
 
 5. Users can edit old meals.
 
-## Known Bugs
-
-1. No validation for editing old meals
-
 ## Support and Contact Details
 
 _Contact Jonathan at: jonathan.thom1990@gmail.com_

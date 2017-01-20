@@ -34,6 +34,12 @@ export class EditMealComponent {
   @Output() doneEditingSender = new EventEmitter();
 
   doneEditing() {
-    this.doneEditingSender.emit();
+    if (!this.childSelectedMeal.name || !this.childSelectedMeal.date || !this.childSelectedMeal.calories || !this.childSelectedMeal.details) {
+      alert('Please fill out all fields.');
+    } else if (this.childSelectedMeal.calories < 0) {
+      alert('Please enter a valid calorie count.');
+    } else {
+      this.doneEditingSender.emit();
+    }
   }
 }

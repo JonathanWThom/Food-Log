@@ -53,5 +53,4 @@ export class AppComponent {
     this.selectedMeal = null;
   }
 
-
 }
