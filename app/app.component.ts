@@ -21,5 +21,6 @@ export class AppComponent {
 
   addMeal(newMealFromChild: Meal) {
     this.masterMealList.push(newMealFromChild);
+    //add form validation in lower component
   }
 }
