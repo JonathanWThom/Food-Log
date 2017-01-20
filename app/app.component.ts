@@ -11,5 +11,9 @@ import { Meal } from './meal.model';
 })
 
 export class AppComponent {
-
+  masterMealList: Meal[] = [
+    new Meal('Ice Cream', 1000, 'Several bowls'),
+    new Meal('Cake', 1500, 'The whole cake'),
+    new Meal('Spinach', 2, 'One leaf of spinach')
+  ]
 }
