@@ -13,6 +13,7 @@ import { Meal } from './meal.model';
       <option value="allDates">All Dates</option>
       <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
     </select>
+    <total-calories [secondChildMealList]="childMealList | calories:filterByCalories | mealDates:filterByDate"></total-calories>
     <div *ngFor="let currentMeal of childMealList | calories:filterByCalories | mealDates:filterByDate">
       <p>Meal: {{currentMeal.name}}</p>
       <p>Calories: {{currentMeal.calories}}</p>
