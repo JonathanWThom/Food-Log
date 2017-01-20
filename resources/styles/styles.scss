@@ -1,7 +1,9 @@
-$color: blue;
-
-body {
-  p {
-    color: blue;
+.header {
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  img {
+    width: 20%;
   }
 }

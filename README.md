@@ -4,6 +4,7 @@
 - refactor
 
 - Custom SASS styling with corresponding Gulp tasks to compile.
+- make reload faster
 
 
 - real readme

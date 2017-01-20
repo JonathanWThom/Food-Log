@@ -5,7 +5,13 @@ import { Meal } from './meal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Food Log</h1>
+    <div class="header">
+      <h1>
+        Food
+        <img src="../resources/img/silverware.png" alt="Silverware">
+        Log
+      </h1>
+    </div>
     <div class="row">
       <div class="col-sm-6">
         <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
