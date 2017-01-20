@@ -29,14 +29,20 @@ import { Meal } from './meal.model';
 
 export class AppComponent {
   masterMealList: Meal[] = [
-    new Meal('Ice Cream', 1000, 'Several bowls', '2017-01-20'),
-    new Meal('Cake', 1500, 'The whole cake', '2017-01-20'),
-    new Meal('Spinach', 2, 'One leaf of spinach', '2017-01-19')
+    new Meal('Omelet', 300, 'With salsa', '2017-01-20'),
+    new Meal('Sandwich', 400, 'Salami on Rye', '2017-01-20'),
+
+    new Meal('Beef Stew', 600, 'Ate a ton of this', '2017-01-20'),
+    new Meal('Kulshan Red Ale', 200, 'Delicious', '2017-01-20'),
+    new Meal('Pancakes', 650, 'With butter AND syrup', '2017-01-19'),
+    new Meal('Taco Salad', 450, 'All the fixings', '2017-01-19'),
+    new Meal('Chicken Tikka Masala', 400, 'From Trader Joe\s', '2017-01-19'),
+    new Meal('Wanderale', 225, 'One of my favorites', '2017-01-19'),
   ];
   selectedMeal: Meal = null;
 
   addMeal(newMealFromChild: Meal) {
-    this.masterMealList.push(newMealFromChild);
+    this.masterMealList.unshift(newMealFromChild);
     //add form validation in lower component, inluding numbers
   }
 
