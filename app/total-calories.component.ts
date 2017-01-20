@@ -10,9 +10,9 @@ import { Meal } from './meal.model';
 
 export class TotalCaloriesComponent implements DoCheck {
   @Input() secondChildMealList: Meal[];
-  totalCaloriesForFilter: number = 0;
   @Input() calorieFilter: String;
   @Input() dateFilter: String;
+  totalCaloriesForFilter: number = 0;
 
 
   ngDoCheck() {

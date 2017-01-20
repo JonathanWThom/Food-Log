@@ -42,7 +42,11 @@ export class MealListComponent implements DoCheck {
     this.filterByCalories = calorieOption;
   }
 
-  removeDuplicates() {
+  filterMealsByDate(date) {
+    this.filterByDate = date;
+  }
+
+  ngDoCheck() {
     var justTheDates: String[] = [];
     for (var i = 0; i < this.childMealList.length; i++) {
       justTheDates.push(this.childMealList[i].date);
@@ -50,14 +54,6 @@ export class MealListComponent implements DoCheck {
     this.noDuplicateDates = justTheDates.filter( function( item, index, inputArray ) {
       return inputArray.indexOf(item) == index;
     });
-  }
-
-  ngDoCheck() {
-    this.removeDuplicates();
-  }
-
-  filterMealsByDate(date) {
-    this.filterByDate = date;
   }
 
   editMeal(currentMeal: Meal) {
