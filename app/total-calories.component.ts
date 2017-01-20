@@ -14,15 +14,12 @@ export class TotalCaloriesComponent implements DoCheck {
   @Input() calorieFilter: String;
   @Input() dateFilter: String;
 
-  totalCalories() {
+
+  ngDoCheck() {
     this.totalCaloriesForFilter = 0;
     for (var i = 0; i < this.secondChildMealList.length; i++) {
       this.totalCaloriesForFilter += this.secondChildMealList[i].calories;
     }
-  }
-
-  ngDoCheck() {
-    this.totalCalories();
   }
 
 }

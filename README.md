@@ -28,9 +28,7 @@ gulp serve
 
 ## Known Bugs
 
-1. Page is updated on interval, rather than on a change. Fix will most likely require use of ngOnChanges().
-
-2. No validation for editing old meals
+1. No validation for editing old meals
 
 ## Support and Contact Details
 
