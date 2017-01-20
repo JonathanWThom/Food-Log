@@ -26,6 +26,10 @@ gulp serve
 
 5. Users can edit old meals.
 
+## Known Bugs
+
+1. The form will clear all fields when validating, even if some are valid. 
+
 ## Support and Contact Details
 
 _Contact Jonathan at: jonathan.thom1990@gmail.com_

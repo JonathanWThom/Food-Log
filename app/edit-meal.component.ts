@@ -6,6 +6,8 @@ import { Meal } from './meal.model';
   template: `
     <div *ngIf="childSelectedMeal">
       <h3>Edit Meal</h3>
+      <h5 *ngIf="formInvalid" class="red">Please fill out all fields.</h5>
+      <h5 *ngIf="caloriesInvalid" class="red">Please enter a valid calorie number.</h5>
       <div class="form-group">
         <label>Meal Name</label>
         <input [(ngModel)]="childSelectedMeal.name" class="form-control">
@@ -32,12 +34,14 @@ import { Meal } from './meal.model';
 export class EditMealComponent {
   @Input() childSelectedMeal: Meal;
   @Output() doneEditingSender = new EventEmitter();
+  formInvalid: boolean = false;
+  caloriesInvalid: boolean = false;
 
   doneEditing() {
     if (!this.childSelectedMeal.name || !this.childSelectedMeal.date || !this.childSelectedMeal.calories || !this.childSelectedMeal.details) {
-      alert('Please fill out all fields.');
+      this.formInvalid = true;
     } else if (this.childSelectedMeal.calories < 0) {
-      alert('Please enter a valid calorie count.');
+      this.caloriesInvalid = true;
     } else {
       this.doneEditingSender.emit();
     }
