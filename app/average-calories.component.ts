@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -9,7 +9,7 @@ import { Meal } from './meal.model';
   `
 })
 
-export class AverageCaloriesComponent {
+export class AverageCaloriesComponent implements DoCheck {
   @Input() childMealList: Meal[];
   averageCalories: number = null;
   totalCalories: number = 0;
@@ -37,14 +37,11 @@ export class AverageCaloriesComponent {
     this.averageCalories = this.totalCalories / this.noDuplicateDates.length;
   }
 
-  ngOnInit() {
-    var that = this;
-    setInterval(function() {
-      that.averageCalories = null;
-      that.totalCalories = 0;
-      that.noDuplicateDates = [];
-      that.justTheDates = [];
-      that.calculateAverage();
-    }, 1000);
+  ngDoCheck() {
+    this.averageCalories = null;
+    this.totalCalories = 0;
+    this.noDuplicateDates = [];
+    this.justTheDates = [];
+    this.calculateAverage();
   }
 }
