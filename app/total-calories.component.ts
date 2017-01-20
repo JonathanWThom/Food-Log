@@ -4,8 +4,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'total-calories',
   template: `
-    <h3 *ngIf="dateFilter">Total Calories for {{calorieFilter}} on {{dateFilter}}: {{totalCaloriesForFilter}}</h3>
-    <h3 *ngIf="!dateFilter">Total Calories for {{calorieFilter}}: {{totalCaloriesForFilter}}</h3>
+    <h3>Total Calories for {{calorieFilter}} on {{dateFilter}}: {{totalCaloriesForFilter}}</h3>
   `
 })
 

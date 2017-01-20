@@ -9,7 +9,7 @@ import { Meal } from './meal.model';
 export class MealDatesPipe implements PipeTransform {
   transform(input: Meal[], whatDate) {
     var output: Meal[] = [];
-    if (whatDate === "allDates") {
+    if (whatDate === "All Dates") {
       return input;
     } else if (whatDate) {
       for (var i = 0; i < input.length; i++) {

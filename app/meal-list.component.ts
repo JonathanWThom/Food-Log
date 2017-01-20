@@ -5,12 +5,12 @@ import { Meal } from './meal.model';
   selector: 'meal-list',
   template: `
     <select (change)="filterMealsByCalories($event.target.value)">
-      <option value="allMeals">All Meals</option>
-      <option value="highCalorieMeals">High Calorie Meals (500 calories or more)</option>
-      <option value="lowCalorieMeals">Low Calorie Meals (Less than 500 calories)</option>
+      <option value="All Meals">All Meals</option>
+      <option value="High Calorie Meals">High Calorie Meals (500 calories or more)</option>
+      <option value="Low Calorie Meals">Low Calorie Meals (Less than 500 calories)</option>
     </select>
     <select (change)="filterMealsByDate($event.target.value)">
-      <option value="allDates">All Dates</option>
+      <option value="All Dates">All Dates</option>
       <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
     </select>
     <total-calories [secondChildMealList]="childMealList | calories:filterByCalories | mealDates:filterByDate" [calorieFilter]="filterByCalories" [dateFilter]="filterByDate"></total-calories>
@@ -28,8 +28,8 @@ export class MealListComponent implements OnInit {
   @Input() childMealList: Meal[];
   @Output() editMealClickSender = new EventEmitter();
 
-  filterByCalories: string = "allMeals";
-  filterByDate: string = null;
+  filterByCalories: string = "All Meals";
+  filterByDate: string = "All Dates";
   noDuplicateDates: String[] = [];
 
   filterMealsByCalories(calorieOption) {

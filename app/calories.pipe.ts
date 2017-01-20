@@ -9,14 +9,14 @@ import { Meal } from './meal.model';
 export class CaloriesPipe implements PipeTransform {
   transform(input: Meal[], howManyCalories) {
     var output: Meal[] = [];
-    if (howManyCalories === "highCalorieMeals") {
+    if (howManyCalories === "High Calorie Meals") {
       for (var i=0; i < input.length; i++) {
         if (input[i].calories >= 500) {
           output.push(input[i]);
         }
       }
       return output;
-    } else if (howManyCalories === "lowCalorieMeals") {
+    } else if (howManyCalories === "Low Calorie Meals") {
       for (var i=0; i < input.length; i++) {
         if (input[i].calories < 500) {
           output.push(input[i]);
