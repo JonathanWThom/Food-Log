@@ -55,8 +55,6 @@ export class NewMealComponent {
       failure = true;
     }
 
-    //add date validation
-
     if (failure === false) {
       var newMeal: Meal = new Meal(name, calories, details, date);
       this.newMealSender.emit(newMeal);

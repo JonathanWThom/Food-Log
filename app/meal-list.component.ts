@@ -9,7 +9,7 @@ import { Meal } from './meal.model';
       <option value="highCalorieMeals">High Calorie Meals (500 calories or more)</option>
       <option value="lowCalorieMeals">Low Calorie Meals (Less than 500 calories)</option>
     </select>
-    <select (change)=filterMealsByDate($event.target.value)>
+    <select (change)="filterMealsByDate($event.target.value)">
       <option value="allDates">All Dates</option>
       <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
     </select>
@@ -35,6 +35,12 @@ export class MealListComponent implements OnInit {
     this.filterByCalories = calorieOption;
   }
 
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('this ran');
+  //   this.removeDuplicates();
+  //   console.log(this.noDuplicateDates);
+  // }
+
   removeDuplicates() {
     var justTheDates: String[] = [];
     for (var i = 0; i < this.childMealList.length; i++) {
@@ -45,8 +51,13 @@ export class MealListComponent implements OnInit {
     });
   }
 
+//Couldn't get ngOnChanges to work so that it would update the available dates when
+//a new object was added. This is a workaround.
   ngOnInit() {
-    this.removeDuplicates();
+    var that = this;
+    setInterval(function() {
+      that.removeDuplicates();
+    }, 1000);
   }
 
   filterMealsByDate(date) {
