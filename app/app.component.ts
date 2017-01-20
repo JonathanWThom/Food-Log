@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Angular Boilerplate</h1>
+    <h1>Food Log</h1>
   </div>
   `
 })
