@@ -6,6 +6,7 @@ import { Meal } from './meal.model';
   template: `
   <div class="container">
     <h1>Food Log</h1>
+    <average-calories></average-calories>
     <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
     <edit-meal [childSelectedMeal]="selectedMeal" (doneEditingSender)="doneEditing()"></edit-meal>

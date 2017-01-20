@@ -5,6 +5,7 @@ import { FormsModule }  from '@angular/forms';
 import { MealListComponent } from './meal-list.component';
 import { NewMealComponent } from './new-meal.component';
 import { EditMealComponent } from './edit-meal.component';
+import { AverageCaloriesComponent } from './average-calories.component';
 import { CaloriesPipe } from './calories.pipe';
 import { MealDatesPipe } from './mealDates.pipe';
 
@@ -19,6 +20,7 @@ import { MealDatesPipe } from './mealDates.pipe';
     MealListComponent,
     NewMealComponent,
     EditMealComponent,
+    AverageCaloriesComponent,
     CaloriesPipe,
     MealDatesPipe
    ],

@@ -1,5 +1,7 @@
 - figure out edit form validations
 - what the hell are all these map files
+- ngonchanges
+- refactor
 
 - Custom SASS styling with corresponding Gulp tasks to compile.
 - Display of the total number of calories consumed in a day, and/or the average number of calories consumed in a day.
