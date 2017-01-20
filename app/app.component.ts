@@ -8,7 +8,7 @@ import { Meal } from './meal.model';
     <h1>Food Log</h1>
     <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
-    <edit-meal [childSelectedMeal]="selectedMeal"></edit-meal>
+    <edit-meal [childSelectedMeal]="selectedMeal" (doneEditingSender)="doneEditing()"></edit-meal>
   </div>
   `
 })
@@ -26,7 +26,13 @@ export class AppComponent {
     //add form validation in lower component, inluding numbers
   }
 
-  editMeal(clickedMeal) {
+  editMeal(clickedMeal: Meal) {
     this.selectedMeal = clickedMeal;
   }
+
+  doneEditing() {
+    this.selectedMeal = null;
+  }
+
+
 }
