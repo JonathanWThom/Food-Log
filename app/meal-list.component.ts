@@ -52,13 +52,6 @@ export class MealListComponent implements DoCheck {
     });
   }
 
-//Couldn't get ngOnChanges to work so that it would update the available dates when a new object was added. This is a workaround.
-  // ngOnInit() {
-  //   var that = this;
-  //   setInterval(function() {
-  //     that.removeDuplicates();
-  //   }, 500);
-  // }
   ngDoCheck() {
     this.removeDuplicates();
   }

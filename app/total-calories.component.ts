@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -8,24 +8,21 @@ import { Meal } from './meal.model';
   `
 })
 
-export class TotalCaloriesComponent implements OnInit {
+export class TotalCaloriesComponent implements DoCheck {
   @Input() secondChildMealList: Meal[];
   totalCaloriesForFilter: number = 0;
   @Input() calorieFilter: String;
   @Input() dateFilter: String;
 
   totalCalories() {
+    this.totalCaloriesForFilter = 0;
     for (var i = 0; i < this.secondChildMealList.length; i++) {
       this.totalCaloriesForFilter += this.secondChildMealList[i].calories;
     }
   }
 
-
-  ngOnInit() {
-    var that = this;
-    setInterval(function() {
-      that.totalCaloriesForFilter = 0;
-      that.totalCalories();
-    }, 1000);
+  ngDoCheck() {
+    this.totalCalories();
   }
+
 }

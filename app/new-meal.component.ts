@@ -31,11 +31,6 @@ import { Meal } from './meal.model';
 export class NewMealComponent {
   @Output() newMealSender = new EventEmitter();
 
-  // parseCalories(calories) {
-  //   calories = parseInt(calories);
-  //   return calories;
-  // }
-
   newMeal(name: string, calories: number, details: string, date: string) {
     var failure: boolean = false;
     calories = Number(calories);
