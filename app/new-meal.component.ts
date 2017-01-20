@@ -32,37 +32,16 @@ export class NewMealComponent {
   @Output() newMealSender = new EventEmitter();
 
   newMeal(name: string, calories: number, details: string, date: string) {
-    var failure: boolean = false;
     calories = Number(calories);
 
-    if (name === "") {
-      alert('Please fill in the meal\'s name');
-      failure = true;
-    }
-
-    if (!calories) {
-      alert('Please include calories');
-      failure = true;
-    }
-
-    if (calories < 0) {
-      alert('Calories must be a positive number');
-      failure = true;
-    }
-
-    if (details === '') {
-      alert('Please fill in details about this meal');
-      failure = true;
-    }
-
-    if (!date) {
-      alert('Please pick a date');
-      failure = true;
-    }
-
-    if (failure === false) {
+    if (!name || !date || !calories || !details) {
+      alert('Please fill out all fields.');
+    } else if (calories < 0) {
+      alert('Please enter a valid calorie count.');
+    } else {
       var newMeal: Meal = new Meal(name, calories, details, date);
       this.newMealSender.emit(newMeal);
     }
+
   }
 }
