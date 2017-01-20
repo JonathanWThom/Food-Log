@@ -10,6 +10,7 @@ import { Meal } from './meal.model';
       <option value="lowCalorieMeals">Low Calorie Meals (Less than 500 calories)</option>
     </select>
     <select (change)=filterMealsByDate($event.target.value)>
+      <option value="allDates">All Dates</option>
       <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
     </select>
     <div *ngFor="let currentMeal of childMealList | calories:filterByCalories | mealDates:filterByDate">
