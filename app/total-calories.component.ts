@@ -4,7 +4,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'total-calories',
   template: `
-    <h3>Total Calories for {{calorieFilter}} on {{dateFilter}}: {{totalCaloriesForFilter}}</h3>
+    <h3>Total Calories for {{calorieFilter}} on {{dateFilter}}:</h3> <h3>{{totalCaloriesForFilter}}</h3>
   `
 })
 

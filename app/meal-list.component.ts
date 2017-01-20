@@ -4,22 +4,28 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
-    <select (change)="filterMealsByCalories($event.target.value)">
-      <option value="All Meals">All Meals</option>
-      <option value="High Calorie Meals">High Calorie Meals (500 calories or more)</option>
-      <option value="Low Calorie Meals">Low Calorie Meals (Less than 500 calories)</option>
-    </select>
-    <select (change)="filterMealsByDate($event.target.value)">
-      <option value="All Dates">All Dates</option>
-      <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
-    </select>
+    <h1>Eaten</h1>
+    <div class="filters">
+      <h3>Apply Filters</h3>
+      <h5>Calorie Content</h5>
+      <select (change)="filterMealsByCalories($event.target.value)">
+        <option value="All Meals">All Meals</option>
+        <option value="High Calorie Meals">High Calorie Meals (500 calories or more)</option>
+        <option value="Low Calorie Meals">Low Calorie Meals (Less than 500 calories)</option>
+      </select>
+      <h5>Date</h5>
+      <select (change)="filterMealsByDate($event.target.value)">
+        <option value="All Dates">All Dates</option>
+        <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
+      </select>
+    </div>
     <total-calories [secondChildMealList]="childMealList | calories:filterByCalories | mealDates:filterByDate" [calorieFilter]="filterByCalories" [dateFilter]="filterByDate"></total-calories>
-    <div *ngFor="let currentMeal of childMealList | calories:filterByCalories | mealDates:filterByDate">
+    <div *ngFor="let currentMeal of childMealList | calories:filterByCalories | mealDates:filterByDate" class="meals">
       <p>Meal: {{currentMeal.name}}</p>
       <p>Calories: {{currentMeal.calories}}</p>
       <p>Details: {{currentMeal.details}}</p>
       <p>Date: {{currentMeal.date}}</p>
-      <button (click)="editMeal(currentMeal)">Edit Meal</button>
+      <button class="btn btn-info" (click)="editMeal(currentMeal)">Edit Meal</button>
     </div>
   `
 })
@@ -36,12 +42,6 @@ export class MealListComponent implements OnInit {
     this.filterByCalories = calorieOption;
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log('this ran');
-  //   this.removeDuplicates();
-  //   console.log(this.noDuplicateDates);
-  // }
-
   removeDuplicates() {
     var justTheDates: String[] = [];
     for (var i = 0; i < this.childMealList.length; i++) {
@@ -52,13 +52,12 @@ export class MealListComponent implements OnInit {
     });
   }
 
-//Couldn't get ngOnChanges to work so that it would update the available dates when
-//a new object was added. This is a workaround.
+//Couldn't get ngOnChanges to work so that it would update the available dates when a new object was added. This is a workaround.
   ngOnInit() {
     var that = this;
     setInterval(function() {
       that.removeDuplicates();
-    }, 1000);
+    }, 500);
   }
 
   filterMealsByDate(date) {

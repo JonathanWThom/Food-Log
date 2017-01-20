@@ -21,7 +21,7 @@ import { Meal } from './meal.model';
       <label>Date</label>
       <input #newDate type="date">
     </div>
-    <button (click)="newMeal(newName.value, newCalories.value, newDetails.value, newDate.value); newName.value=''; newCalories.value=''; newDetails.value=''; newDate.value='';">Log</button>
+    <button class="btn btn-success" (click)="newMeal(newName.value, newCalories.value, newDetails.value, newDate.value); newName.value=''; newCalories.value=''; newDetails.value=''; newDate.value='';">Log</button>
   `
 })
 

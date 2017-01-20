@@ -17,8 +17,8 @@ import { Meal } from './meal.model';
         <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
       </div>
       <div class="col-sm-6">
+        <h1>More</h1>
         <average-calories [childMealList]="masterMealList"></average-calories>
-
         <new-meal (newMealSender)="addMeal($event)"></new-meal>
         <edit-meal [childSelectedMeal]="selectedMeal" (doneEditingSender)="doneEditing()"></edit-meal>
       </div>
@@ -31,7 +31,6 @@ export class AppComponent {
   masterMealList: Meal[] = [
     new Meal('Omelet', 300, 'With salsa', '2017-01-20'),
     new Meal('Sandwich', 400, 'Salami on Rye', '2017-01-20'),
-
     new Meal('Beef Stew', 600, 'Ate a ton of this', '2017-01-20'),
     new Meal('Kulshan Red Ale', 200, 'Delicious', '2017-01-20'),
     new Meal('Pancakes', 650, 'With butter AND syrup', '2017-01-19'),
