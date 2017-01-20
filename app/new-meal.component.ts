@@ -11,7 +11,7 @@ import { Meal } from './meal.model';
     </div>
     <div>
       <label>Calories</label>
-      <input #newCalories>
+      <input #newCalories type="number">
     </div>
     <div>
       <label>Details</label>
@@ -25,7 +25,30 @@ export class NewMealComponent {
   @Output() newMealSender = new EventEmitter();
 
   newMeal(name: string, calories: number, details: string) {
-    var newMeal: Meal = new Meal(name, calories, details);
-    this.newMealSender.emit(newMeal);
+    var failure: boolean = false;
+    if (name === "") {
+      alert('Please fill in the meal\'s name');
+      failure = true;
+    }
+
+    if (!calories) {
+      alert('Please include calories');
+      failure = true;
+    }
+
+    if (calories < 0) {
+      alert('Calories must be a positive number');
+      failure = true;
+    }
+
+    if (details === '') {
+      alert('Please fill in details about this meal');
+      failure = true;
+    }
+
+    if (failure === false) {
+      var newMeal: Meal = new Meal(name, calories, details);
+      this.newMealSender.emit(newMeal);
+    }
   }
 }
