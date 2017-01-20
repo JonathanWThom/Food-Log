@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -10,7 +10,7 @@ import { Meal } from './meal.model';
       <option value="lowCalorieMeals">Low Calorie Meals (Less than 500 calories)</option>
     </select>
     <select (change)=filterMealsByDate($event.target.value)>
-      <option *ngFor="let currentMeal of childMealList" value={{currentMeal.date}}>{{currentMeal.date}}</option>
+      <option *ngFor="let currentDate of noDuplicateDates" value={{currentDate}}>{{currentDate}}</option>
     </select>
     <div *ngFor="let currentMeal of childMealList | calories:filterByCalories | mealDates:filterByDate">
       <p>Meal: {{currentMeal.name}}</p>
@@ -22,20 +22,34 @@ import { Meal } from './meal.model';
   `
 })
 
-export class MealListComponent {
+export class MealListComponent implements OnInit {
   @Input() childMealList: Meal[];
   @Output() editMealClickSender = new EventEmitter();
 
   filterByCalories: string = "allMeals";
   filterByDate: string = null;
+  noDuplicateDates: String[] = [];
 
   filterMealsByCalories(calorieOption) {
     this.filterByCalories = calorieOption;
   }
 
+  removeDuplicates() {
+    var justTheDates: String[] = [];
+    for (var i = 0; i < this.childMealList.length; i++) {
+      justTheDates.push(this.childMealList[i].date);
+    }
+    this.noDuplicateDates = justTheDates.filter( function( item, index, inputArray ) {
+      return inputArray.indexOf(item) == index;
+    });
+  }
+
+  ngOnInit() {
+    this.removeDuplicates();
+  }
+
   filterMealsByDate(date) {
     this.filterByDate = date;
-    debugger;
   }
 
   editMeal(currentMeal: Meal) {
