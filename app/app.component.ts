@@ -6,10 +6,17 @@ import { Meal } from './meal.model';
   template: `
   <div class="container">
     <h1>Food Log</h1>
-    <average-calories [childMealList]="masterMealList"></average-calories>
-    <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
-    <new-meal (newMealSender)="addMeal($event)"></new-meal>
-    <edit-meal [childSelectedMeal]="selectedMeal" (doneEditingSender)="doneEditing()"></edit-meal>
+    <div class="row">
+      <div class="col-sm-6">
+        <meal-list [childMealList]="masterMealList" (editMealClickSender)="editMeal($event)"></meal-list>
+      </div>
+      <div class="col-sm-6">
+        <average-calories [childMealList]="masterMealList"></average-calories>
+
+        <new-meal (newMealSender)="addMeal($event)"></new-meal>
+        <edit-meal [childSelectedMeal]="selectedMeal" (doneEditingSender)="doneEditing()"></edit-meal>
+      </div>
+    </div>
   </div>
   `
 })

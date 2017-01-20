@@ -4,13 +4,16 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'total-calories',
   template: `
-    <h3>Total Calories for selected filters: {{totalCaloriesForFilter}}</h3>
+    <h3 *ngIf="dateFilter">Total Calories for {{calorieFilter}} on {{dateFilter}}: {{totalCaloriesForFilter}}</h3>
+    <h3 *ngIf="!dateFilter">Total Calories for {{calorieFilter}}: {{totalCaloriesForFilter}}</h3>
   `
 })
 
 export class TotalCaloriesComponent implements OnInit {
   @Input() secondChildMealList: Meal[];
   totalCaloriesForFilter: number = 0;
+  @Input() calorieFilter: String;
+  @Input() dateFilter: String;
 
   totalCalories() {
     for (var i = 0; i < this.secondChildMealList.length; i++) {
