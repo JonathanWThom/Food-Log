@@ -55,6 +55,8 @@ export class NewMealComponent {
       failure = true;
     }
 
+    var calories = parseInt(calories);
+
     if (failure === false) {
       var newMeal: Meal = new Meal(name, calories, details, date);
       this.newMealSender.emit(newMeal);
