@@ -4,7 +4,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'average-calories',
   template: `
-    <h3>Average Calories: {{averageCalories}}</h3>
+    <h3>Average Calories Per Day: {{averageCalories}}</h3>
   `
 })
 

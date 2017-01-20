@@ -6,6 +6,7 @@ import { MealListComponent } from './meal-list.component';
 import { NewMealComponent } from './new-meal.component';
 import { EditMealComponent } from './edit-meal.component';
 import { AverageCaloriesComponent } from './average-calories.component';
+import { TotalCaloriesComponent } from './total-calories.component';
 import { CaloriesPipe } from './calories.pipe';
 import { MealDatesPipe } from './mealDates.pipe';
 
@@ -21,6 +22,7 @@ import { MealDatesPipe } from './mealDates.pipe';
     NewMealComponent,
     EditMealComponent,
     AverageCaloriesComponent,
+    TotalCaloriesComponent,
     CaloriesPipe,
     MealDatesPipe
    ],
