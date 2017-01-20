@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -30,7 +30,7 @@ import { Meal } from './meal.model';
   `
 })
 
-export class MealListComponent implements OnInit {
+export class MealListComponent implements DoCheck {
   @Input() childMealList: Meal[];
   @Output() editMealClickSender = new EventEmitter();
 
@@ -53,11 +53,14 @@ export class MealListComponent implements OnInit {
   }
 
 //Couldn't get ngOnChanges to work so that it would update the available dates when a new object was added. This is a workaround.
-  ngOnInit() {
-    var that = this;
-    setInterval(function() {
-      that.removeDuplicates();
-    }, 500);
+  // ngOnInit() {
+  //   var that = this;
+  //   setInterval(function() {
+  //     that.removeDuplicates();
+  //   }, 500);
+  // }
+  ngDoCheck() {
+    this.removeDuplicates();
   }
 
   filterMealsByDate(date) {
