@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-//may need to add output and event emitter
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -14,16 +13,22 @@ import { Meal } from './meal.model';
       <p>Meal: {{currentMeal.name}}</p>
       <p>Calories: {{currentMeal.calories}}</p>
       <p>Details: {{currentMeal.details}}</p>
+      <button (click)="editMeal(currentMeal)">Edit Meal</button>
     </div>
   `
 })
 
 export class MealListComponent {
   @Input() childMealList: Meal[];
+  @Output() editMealClickSender = new EventEmitter();
 
   filterByCalories: string = "allMeals";
 
   filterMeals(calorieOption) {
     this.filterByCalories = calorieOption;
+  }
+
+  editMeal(currentMeal: Meal) {
+    this.editMealClickSender.emit(currentMeal);
   }
 }
