@@ -44,6 +44,8 @@ export class EditMealComponent {
       this.caloriesInvalid = true;
     } else {
       this.doneEditingSender.emit();
+      this.formInvalid = false;
+      this.caloriesInvalid = false;
     }
   }
 }
